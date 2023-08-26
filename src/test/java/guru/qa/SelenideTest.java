@@ -12,11 +12,12 @@ public class SelenideTest {
     @Test
     @DisplayName("Проверка названия issue через Listener")
     public void testIssueTitleSearch () {
+
         open("https://github.com");
         $(".search-input").click();
-        $(".search-input").setValue("allure-example").pressEnter();
+        $("#query-builder-test").setValue("Overloque/11.QA.GURU_allureReports").pressEnter();
 
-        $(linkText("allure-examples/allure-examples")).click();
+        $(linkText("Overloque/11.QA.GURU_allureReports")).click();
         $("#issues-tab").click();
         $(withText("Test Issue")).should(exist);
     }
