@@ -1,6 +1,7 @@
 package guru.qa;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,10 +34,21 @@ public class StepsAndAnnotationsTest extends BaseTest {
     }
 
     @Test
+    @Feature("Issue в репозитории")
+    @Story("Проверка заголовка Issue в собственном репозитории")
+    @Owner("Overloque")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(value = "GitHub", url = "https://github.com")
     @DisplayName("Проверка названия issue через аннотации")
     public void testIssueTitleAnnotationsSearch() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         StepsMethods steps = new StepsMethods();
 
+        steps
+                .openMainPage()
+                .findRepository(REPOSITORY)
+                .clickRepoRef(REPOSITORY)
+                .openIssuesTab()
+                .checkIssueTitle(ISSUE);
     }
 }

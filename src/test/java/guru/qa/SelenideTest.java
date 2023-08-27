@@ -13,7 +13,7 @@ import static org.openqa.selenium.By.*;
 public class SelenideTest extends BaseTest {
     @Test
     @DisplayName("Проверка названия issue через Listener")
-    public void testIssueTitleSearch () {
+    public void testIssueTitleSearch() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         open("https://github.com");
