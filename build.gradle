@@ -8,18 +8,17 @@ version '1.0-SNAPSHOT'
 
 allure {
     report {
-        version.set("2.23.0")
+        version.set('2.23.0')
     }
     adapter {
         aspectjWeaver.set(true)
         frameworks {
-            junit5 { //название фреймворка
-                adapterVersion.set("2.23.0")
+            junit5 {
+                adapterVersion.set('2.23.0')
             }
         }
     }
 }
-
 
 repositories {
     mavenCentral()
@@ -35,4 +34,5 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }
