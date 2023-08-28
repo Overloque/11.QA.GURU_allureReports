@@ -12,11 +12,16 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.*;
 
+@Feature("Issue в репозитории")
+@Owner("Overloque")
 public class StepsAndAnnotationsTest extends BaseTest {
     private static final String REPOSITORY = "Overloque/11.QA.GURU_allureReports";
     private static final String ISSUE = "Test Issue";
 
     @Test
+    @Story("Проверка заголовка Issue в собственном репозитории через лямбда выражения")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(value = "GitHub", url = "https://github.com")
     @DisplayName("Проверка названия issue через лямбда выражения")
     public void testIssueTitleLambdaSearch() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -34,9 +39,7 @@ public class StepsAndAnnotationsTest extends BaseTest {
     }
 
     @Test
-    @Feature("Issue в репозитории")
-    @Story("Проверка заголовка Issue в собственном репозитории")
-    @Owner("Overloque")
+    @Story("Проверка заголовка Issue в собственном репозитории через аннотации")
     @Severity(SeverityLevel.NORMAL)
     @Link(value = "GitHub", url = "https://github.com")
     @DisplayName("Проверка названия issue через аннотации")
